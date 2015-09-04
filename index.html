@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste</title>
+
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="lib/require.js"></script>
+    <script type="text/javascript" src="js/jspdf.js"></script>
+    <script type="text/javascript" src="lib/deflate.js"></script>
+    <script type="text/javascript" src="lib/filesaver.js"></script>
+    <script type="text/javascript" src="lib/blob.js"></script>
+    <script type="text/javascript" src="plu/addimage.js"></script>
+    <script type="text/javascript" src="plu/standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="plu/split_text_to_size.js"></script>
+    <script type="text/javascript" src="plu/from_html.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#cmd').click(function () {
+                var doc = new jsPDF('p', 'mm', [297,210]);
+                var source = $('#target').html();
+                var specialElementHandlers = {
+                    '#bypassme': function(element, renderer) {
+                        return true;
+                    }
+                };
+
+                doc.fromHTML(
+                    source, // HTML string or DOM elem ref.
+                        10,    // x coord
+                        10,    // y coord
+                        {
+                            'width': 190, // max width of content on PDF
+                            'elementHandlers': specialElementHandlers
+                    });
+                doc.output('dataurl');
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="#" id="cmd">Imprimir</a>
+    <div id="target">
+        <h1>Teste de Questionário 1</h1>
+        <h2>Pergunta 1</h2>
+        <p>
+            As pessoas, agora, através da cibernética, usam uma linguagem denominada “internetiquês”, uma espécie de linguagem formada pelos próprios usuários da Internet. O “internetiquês” serve também para mostrar sentimentos no computador, de zangado a apaixonado. Essas evoluções na forma de se comunicar continuaram levando o homem, apesar de tanta evolução, a se ritualizar, ou seja, a transferir para objetos, coisas, máquinas e símbolos a sua presença.
+        </p>
+        <p>
+            <em>
+                Fonte: NEDER, C. P. As influências das novas tecnologias de comunicação social na formação política. São Paulo: 2011.<br>
+                Disponível em: &lt;http://www.bocc.ubi.pt/pag/neder-cristiane-novas-tecnologias.pdf&gt;<br>
+                Acesso em: 10 fev. 2014
+            </em>
+        </p>
+        <p>
+            O texto aponta a criação e a existência de um tipo de linguagem própria entre usuários da internet, o “internetiquês”. Segundo ele, o objetivo dessa linguagem é
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Suprir as faltas que a linguagem cotidiana impões, tal como a expressão de sentimentos.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Excluir as pessoas que não acessam o meio virtual, uma vez que desconhecem essa linguagem.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Transferir sentimentos e emoções humanas aos dispositivos conectados à internet.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Adaptar a linguagem cotidiana ao ambiente cibernético, aproximando-as.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Substituir a linguagem cotidiana, uma vez que o “internetiquês” é mais evoluído.
+                </p>
+            </li>
+        </ol>
+        <hr/>
+        <h2>Pergunta 2</h2>
+        <p>
+            <img alt="" src="https://questionsstorage.blob.core.windows.net/question/185573172015144132.png"><br>
+        </p>
+        <p>
+            <em>
+                Disponível em: &lt;http://www.imaginabilis.com.br/corporativo/imaginabilis/noticias/img/artnet52c.jpg&gt;<br>
+                Acesso em: 10 out. 2014.
+            </em>
+        </p>
+        <p>
+            A peça publicitária apresentada é de uma campanha do Governo do Estado de São Paulo em relação ao consumo de água no feriado prolongado do carnaval. Pela análise do conjunto dos elementos,
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Há uma tentativa de minimizar as consequências do consumo excessivo de água ao representar o chuveiro com objetos ligados ao carnaval, relativizando a importância do banho no consumo de água em geral.
+                </p>
+            </li>
+            <li>
+                <p>
+                    O foco da campanha é a diminuição do consumo de água durante o banho e não há indicação de seu uso consciente em um contexto mais amplo.
+                </p>
+            </li>
+            <li>
+                <p>
+                    O texto em destaque relaciona a duração do banho com a do feriado e a imagem introduz o elemento do carnaval, provocando uma reflexão sobre o consumo consciente de água.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Percebe-se que há um tom irônico, principalmente pelo texto “use a água com inteligência”, visto que os demais elementos indicam uma ideia contrária.
+                </p>
+            </li>
+            <li>
+                <p>
+                    A campanha incentiva o consumo da água, já que tira a seriedade da questão ao inserir objetos carnavalescos e requerer que se utilize a água com inteligência.
+                </p>
+            </li>
+        </ol>
+
+    </div>
+
+</body>
+</html>
